@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import {useDispatch, useSelector} from "react-redux";
+import {BookState, getAllBooks} from "./slices/book.slice";
+import {RootState} from "./stores";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+    const {books} = useSelector((state: RootState) => state.book as BookState);
+    useEffect(() => {
+        console.log('vo day 2 lan')
+        dispatch(getAllBooks());
+    }, []);
+
+    useEffect(() => {
+        console.log('books ne ', books)
+    }, [books])
+    return (
+        <div className="App">
+            hello world
+        </div>
+    );
 }
 
 export default App;

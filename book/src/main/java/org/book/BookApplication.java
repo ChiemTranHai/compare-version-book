@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {"org.book"})
-@EnableJpaRepositories(basePackages = {"org.book.dao.impl"})
+@EnableJpaRepositories(basePackages = {"org.book.repository"})
 public class BookApplication {
 
     public static void main(String[] args) {
